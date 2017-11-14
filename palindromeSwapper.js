@@ -1,23 +1,28 @@
 /**
  * @function palindromeSwapper
  * menukar 2 huruf berurutan dari n = 0 sampai n-1
+ *         01234    10234  02134  01324  01243
  * contoh: makan => amkan, mkaan, maakn, makna
+ *  0 1 ... 1, 2 ... 2,3 ..
  * @param {string} str - input kata yang ingin di-swap dan dicek palindrom
  * @returns {boolean} true bila kata yang di-swap adalah palindrom
  */
 function palindromeSwapper(str) {
-  let newStr = '';
+  var newStr = '';
   for (var i = 0; i < str.length; i++) {
-    for (var j = 0; j < str.length; i++) {
+    for (var j = 0; j < str.length; j++) { 
       if (i === j) {
-        newStr += str[j++];
-        newStr += str[j];
+        newStr += str[j+1] ? str[j+1] : '' ;
+        newStr += str[i];
         j++;
       } else {
         newStr += str[j];
       }
     }
-    if (isPalindrome(newStr)) return true;
+    if (isPalindrome(newStr)) {
+      return true
+    }
+    newStr = ''
   }
   return false;
 }
@@ -29,10 +34,9 @@ function palindromeSwapper(str) {
  * @returns {boolean} true bila kata adalah palindrom
  */
 function isPalindrome(str) {
-  if (str.split('').reverse().join() === str) return console.log(true);
-  return console.log(false);
+  //console.log('paldrom', str)
+  return str.split('').reverse().join('') === str
 }
-
 console.log(palindromeSwapper('arcecar')); // TRUE
 console.log(palindromeSwapper('racecar')); // TRUE
 console.log(palindromeSwapper('recacar')); // FALSE
