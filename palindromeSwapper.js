@@ -7,12 +7,11 @@
  */
 function palindromeSwapper(str) {
   var newStr = '';
+  if (isPalindrome(str)) return true;
 
   for (var i = 0; i < str.length; i++) {
     for (var j = 0; j < str.length; j++) {
       if (i === j) {
-        // newStr += str[j++];
-        // newStr += str[j];
         newStr += str[j+1] + str[j]
         j++;
       } else {
@@ -20,6 +19,7 @@ function palindromeSwapper(str) {
       }
     }
     if (isPalindrome(newStr)) return true;
+    newStr = ''
   }
   return false;
 }
@@ -39,3 +39,4 @@ function isPalindrome(str) {
 console.log(palindromeSwapper('arcecar')); // TRUE
 console.log(palindromeSwapper('racecar')); // TRUE
 console.log(palindromeSwapper('recacar')); // FALSE
+console.log(palindromeSwapper('raceacr')); // TRUE
