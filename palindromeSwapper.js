@@ -10,11 +10,7 @@ function palindromeSwapper(str) {
   let newStr = '';
   let balik = '';
 
-  for(var k = str.length -1; k >= 0 ; k--) {
-    balik = balik + str[k];
-  }
-  
-  if(str === balik) {
+  if(isPalindrome(str)) {
     return true;
   } else {
       for (var i = 0; i < str.length; i++) {
@@ -30,7 +26,7 @@ function palindromeSwapper(str) {
           if(isPalindrome(newStr)) {
             return true;
           } else {
-            return false;
+              return false;
           }
       }
   }
@@ -45,7 +41,7 @@ function palindromeSwapper(str) {
 
 function isPalindrome(str) {
   if (str.split('').reverse().join('') === str) {
-    return true
+    return true;
   } else {
     return false;
   }
@@ -54,3 +50,4 @@ function isPalindrome(str) {
 console.log(palindromeSwapper('arcecar')); // TRUE
 console.log(palindromeSwapper('racecar')); // TRUE
 console.log(palindromeSwapper('recacar')); // FALSE
+console.log(palindromeSwapper('mama')); // TRUE
