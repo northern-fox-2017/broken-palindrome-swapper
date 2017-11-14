@@ -8,6 +8,7 @@
 function palindromeSwapper(str) {
   debugger
   let newStr = '';
+  if (isPalindrome(str)) return true;
   for (var i = 0; i < str.length; i++) {
     for (var j = 0; j < str.length; j++) {
       if (i === j) {
@@ -19,6 +20,7 @@ function palindromeSwapper(str) {
       }
     }
     if (isPalindrome(newStr)) return true;
+    newStr = ''
   }
   return false;
 }
@@ -36,4 +38,6 @@ function isPalindrome(str) {
 
 console.log(palindromeSwapper('arcecar')); // TRUE
 console.log(palindromeSwapper('racecar')); // TRUE
+console.log(palindromeSwapper('raceacr')); // TRUE
+console.log(palindromeSwapper('makan')); // FALSE
 console.log(palindromeSwapper('recacar')); // FALSE
